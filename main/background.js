@@ -2,6 +2,7 @@ import path from 'path'
 import { app, ipcMain } from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
+import * as fs from "fs";
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -34,6 +35,7 @@ if (isProd) {
 app.on('window-all-closed', () => {
   app.quit()
 })
+
 
 ipcMain.on('message', async (event, arg) => {
   event.reply('message', `${arg} World!`)
