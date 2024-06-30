@@ -1,11 +1,9 @@
 "use client";
-import React, {useState} from 'react';
+import React from 'react';
 import Head from 'next/head';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "../components/Sidebar";
-import {AcUnit} from "@mui/icons-material";
-import {Button} from "@mui/material";
+import AppLayout from "../layouts/AppLayout";
 
 
 export default function HomePage() {
@@ -14,13 +12,6 @@ export default function HomePage() {
             <Head>
                 <title>Employee Management System</title>
             </Head>
-            <Sidebar menus={[
-                {
-                    icon: (<AcUnit/>),
-                    route: "/dashboard/user",
-                    text: "User"
-                }
-            ]}/>
         </React.Fragment>
     )
 }

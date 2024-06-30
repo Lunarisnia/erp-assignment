@@ -1,4 +1,5 @@
 import {
+    Box,
     Divider,
     Drawer,
     IconButton,
@@ -12,12 +13,15 @@ import {ChevronLeft} from "@mui/icons-material";
 import {useRouter} from "next/router";
 
 
-export default function Sidebar({menus}) {
+export default function Sidebar({menus, open, onToggle}) {
     const router = useRouter();
     const items = menus.map((menu, i) => {
         return (
             <ListItem disablePadding key={i}>
-                <ListItemButton onClick={() => router.push(menu.route)}>
+                <ListItemButton onClick={() => {
+                    router.push(menu.route)
+                    onToggle()
+                }}>
                     <ListItemIcon>
                         {menu.icon}
                     </ListItemIcon>
@@ -28,12 +32,22 @@ export default function Sidebar({menus}) {
     })
 
     return (
-        <>
-            <Drawer variant="permanent">
-                <List>
-                    {items}
-                </List>
-            </Drawer>
-        </>
+        <Drawer variant="temporary" open={open}>
+            <List>
+                <ListItem disablePadding style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                }}>
+                    <IconButton onClick={onToggle}>
+                        <ChevronLeft/>
+                    </IconButton>
+                </ListItem>
+            </List>
+            <Divider />
+            <List>
+                {items}
+            </List>
+        </Drawer>
     )
 }

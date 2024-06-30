@@ -2,7 +2,7 @@
 
 ## Usage
 
-### Create an App
+### Create an AppLayout
 
 ```
 # with npx
