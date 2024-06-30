@@ -1,43 +1,19 @@
-import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
+"use client";
+import React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import WorkerForm from '../components/WorkerForm';
+import LoginForm from "../components/LoginForm";
 
-export default function HomePage() {
-  const [message, setMessage] = React.useState('')
+import "bootstrap/dist/css/bootstrap.min.css";
 
-  React.useEffect(() => {
-    window.ipc.on('message', (message) => {
-      setMessage(message)
-    })
-  }, [])
 
+export default function HomePage() { 
   return (
     <React.Fragment>
       <Head>
-        <title>Home - Nextron (basic-lang-javascript)</title>
+        <title>Karyawan Login</title>
       </Head>
-      <div>
-        <p>
-          ⚡ Electron + Next.js ⚡ - <Link href="/next">Go to next page</Link>
-        </p>
-        <Image
-          src="/images/logo.png"
-          alt="Logo image"
-          width={256}
-          height={256}
-        />
-      </div>
-      <div>
-        <button
-          onClick={() => {
-            window.ipc.send('message', 'Hello')
-          }}
-        >
-          Test IPC
-        </button>
-        <p>{message}</p>
-      </div>
     </React.Fragment>
   )
 }
