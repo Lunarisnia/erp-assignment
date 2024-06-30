@@ -11,6 +11,9 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.21",
     "electron-serve": "^1.3.0",
     "electron-store": "^8.2.0"
   },
