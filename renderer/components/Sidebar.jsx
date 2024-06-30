@@ -8,11 +8,11 @@ import {
     ListItemIcon,
     ListItemText
 } from "@mui/material";
-import {AcUnit, ChevronLeft} from "@mui/icons-material";
+import {ChevronLeft} from "@mui/icons-material";
 import {useRouter} from "next/router";
 
 
-export default function Sidebar({open, onClose, menus}) {
+export default function Sidebar({menus}) {
     const router = useRouter();
     const items = menus.map((menu, i) => {
         return (
@@ -29,19 +29,7 @@ export default function Sidebar({open, onClose, menus}) {
 
     return (
         <>
-            <Drawer open={open}>
-                <List>
-                    <ListItem disablePadding style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-end',
-                    }}>
-                        <IconButton onClick={onClose}>
-                            <ChevronLeft/>
-                        </IconButton>
-                    </ListItem>
-                </List>
-                <Divider/>
+            <Drawer variant="permanent">
                 <List>
                     {items}
                 </List>

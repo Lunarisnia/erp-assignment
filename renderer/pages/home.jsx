@@ -9,18 +9,12 @@ import {Button} from "@mui/material";
 
 
 export default function HomePage() {
-    const [open, setOpen] = useState(false);
-
-    const handleSidebar = () => {
-        setOpen(!open);
-    }
-
     return (
         <React.Fragment>
             <Head>
                 <title>Employee Management System</title>
             </Head>
-            <Sidebar open={open} onClose={handleSidebar} menus={[
+            <Sidebar menus={[
                 {
                     icon: (<AcUnit/>),
                     route: "/dashboard/user",
