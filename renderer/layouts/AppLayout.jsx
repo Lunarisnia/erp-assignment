@@ -1,8 +1,9 @@
 import Sidebar from "../components/Sidebar";
 import {AcUnit} from "@mui/icons-material";
 import React, {useState} from "react";
-import {AppBar, IconButton, Toolbar, Typography} from "@mui/material";
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function AppLayout({children}) {
@@ -27,6 +28,7 @@ export default function AppLayout({children}) {
                     <Typography variant="h6" noWrap component="div">
                         Employee Management System
                     </Typography>
+                    <Button></Button>
                 </Toolbar>
             </AppBar>
             <Sidebar open={open} onToggle={handleDrawer} menus={[
@@ -36,7 +38,7 @@ export default function AppLayout({children}) {
                     text: "User"
                 }
             ]}/>
-            <div style={{marginTop: 80}}>
+            <div style={{marginTop: 80, marginLeft: 120}}>
                 {children}
             </div>
         </div>
