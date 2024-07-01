@@ -1,5 +1,5 @@
 import Sidebar from "../components/Sidebar";
-import {CalendarMonthOutlined, Newspaper, Person} from "@mui/icons-material";
+import {CalendarMonthOutlined, Newspaper, Person, Timer} from "@mui/icons-material";
 import React, {useState} from "react";
 import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -46,6 +46,11 @@ export default function AppLayout({children}) {
                     icon: (<Newspaper/>),
                     route: "/dashboard/work-permit",
                     text: "Izin Kerja"
+                },
+                {
+                    icon: (<Timer/>),
+                    route: "/dashboard/leave",
+                    text: "Cuti"
                 }
             ]}/>
             <div style={{marginTop: 80, marginLeft: 120}}>
