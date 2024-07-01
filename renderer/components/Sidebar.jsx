@@ -20,6 +20,7 @@ export default function Sidebar({menus, open, onToggle}) {
             <ListItem disablePadding key={i}>
                 <ListItemButton onClick={() => {
                     router.push(menu.route)
+                    onToggle()
                 }}>
                     <ListItemIcon>
                         {menu.icon}
