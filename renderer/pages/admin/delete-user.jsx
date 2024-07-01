@@ -8,7 +8,8 @@ export default function DeleteUserPage() {
 
     const onSubmit = async (result) => {
         const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-        await axios.delete(`${backendUrl}/user/${result}`)
+        await axios.delete(`${backendUrl}/user/${result["nomor karyawan"]}`)
+        router.push("/dashboard/user")
     }
 
     const onCancel = () => {
