@@ -4,7 +4,9 @@ import React, {useState} from "react";
 import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {config} from "dotenv";
 
+config();
 
 export default function AppLayout({children}) {
     const [open, setOpen] = useState(false);
