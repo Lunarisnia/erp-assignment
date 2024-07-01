@@ -1,8 +1,9 @@
 import Sidebar from "../components/Sidebar";
-import {AcUnit} from "@mui/icons-material";
+import {CalendarMonthOutlined, Newspaper, Person, Timer} from "@mui/icons-material";
 import React, {useState} from "react";
-import {AppBar, Box, Container, IconButton, styled, Toolbar, Typography} from "@mui/material";
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function AppLayout({children}) {
@@ -13,7 +14,7 @@ export default function AppLayout({children}) {
     }
 
     return (
-        <Box style={{display: 'flex'}}>
+        <div>
             <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
@@ -22,21 +23,39 @@ export default function AppLayout({children}) {
                         onClick={handleDrawer}
                         edge="start"
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Employee Management System
                     </Typography>
+                    <Button></Button>
                 </Toolbar>
             </AppBar>
             <Sidebar open={open} onToggle={handleDrawer} menus={[
                 {
-                    icon: (<AcUnit/>),
+                    icon: (<Person/>),
                     route: "/dashboard/user",
-                    text: "User"
+                    text: "Karyawan"
+                },
+                {
+                    icon: (<CalendarMonthOutlined/>),
+                    route: "/dashboard/attendance",
+                    text: "Absensi"
+                },
+                {
+                    icon: (<Newspaper/>),
+                    route: "/dashboard/work-permit",
+                    text: "Izin Kerja"
+                },
+                {
+                    icon: (<Timer/>),
+                    route: "/dashboard/leave",
+                    text: "Cuti"
                 }
             ]}/>
-            {children}
-        </Box>
+            <div style={{marginTop: 80, marginLeft: 120}}>
+                {children}
+            </div>
+        </div>
     )
 }
