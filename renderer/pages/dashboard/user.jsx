@@ -13,6 +13,7 @@ export default function UserPage() {
                 const res = await axios.get(`${backendUrl}/user`)
                 setUsers(res.data.map(u => (
                     {
+                        "Nomor Karyawan": u.id,
                         "Name": u.name,
                         "Role": u.role,
                         "Email": u.email,
@@ -29,6 +30,9 @@ export default function UserPage() {
     const onAddWorker = () => {
         router.push("/admin/add-user")
     }
+    const onDeleteWorker = () => {
+        router.push("/admin/delete-user")
+    }
 
     return (
         <Grid container spacing={1} direction="column">
@@ -36,11 +40,14 @@ export default function UserPage() {
                 <Button variant="contained" onClick={onAddWorker}>
                     Add Worker
                 </Button>
+                <Button variant="contained" onClick={onDeleteWorker}>
+                    Delete Worker
+                </Button>
             </Grid>
             <br/>
             <Typography>List Karyawan</Typography>
             <Grid item>
-                <DynamicTable head={["Name", "Role", "Email"]} body={users}/>
+                <DynamicTable head={["Nomor Karyawan", "Name", "Role", "Email"]} body={users}/>
             </Grid>
         </Grid>
     )

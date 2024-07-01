@@ -17,7 +17,7 @@ export default function AddUserPage() {
     }
     return (
         <>
-            <Typography>Add User</Typography>
+            <Typography>Add Karyawan</Typography>
             <DynamicForm forms={["Name", "Email", "Role", "Password"]} onCancel={onCancel} onSubmit={onSubmit}/>
         </>
     )
