@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Button} from "@mui/material";
 
 
-export default function LoginForm() {
+export default function LoginForm({onSubmit}) {
     return (
             <div className="d-flex justify-content-center align-items-center vh-100">
                 <div className="card shadow p-4" style={{ width: '100%', maxWidth: '400px' }}>
@@ -11,7 +12,7 @@ export default function LoginForm() {
                         <h3 style={{ color: 'blue' }}>Login To Your Account</h3>
                         <form>
                             <div className="form-group mb-3">
-                                <label htmlFor="input-username">Username</label>
+                                <label htmlFor="input-username">Email</label>
                                 <input type="email" className="form-control" id="input-username" aria-describedby="emailHelp" placeholder=""></input>
                             </div>
                             <div className="form-group">
@@ -21,7 +22,7 @@ export default function LoginForm() {
                             <div className="form-group form-check">
                             </div>
                             <div className="d-flex">
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <Button onClick={onSubmit} variant="contained">Submit</Button>
                             </div>
                         </form>
                     </div>
