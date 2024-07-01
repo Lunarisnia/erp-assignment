@@ -1,7 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import {AcUnit} from "@mui/icons-material";
 import React, {useState} from "react";
-import {AppBar, Box, Container, IconButton, styled, Toolbar, Typography} from "@mui/material";
+import {AppBar, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 
@@ -13,7 +13,7 @@ export default function AppLayout({children}) {
     }
 
     return (
-        <Box style={{display: 'flex'}}>
+        <div>
             <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
@@ -22,7 +22,7 @@ export default function AppLayout({children}) {
                         onClick={handleDrawer}
                         edge="start"
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Employee Management System
@@ -36,7 +36,34 @@ export default function AppLayout({children}) {
                     text: "User"
                 }
             ]}/>
-            {children}
-        </Box>
+            <div style={{marginTop: 80}}>
+                {children}
+            </div>
+        </div>
+        // <Box style={{display: 'flex'}}>
+        //     <AppBar position="fixed" open={open}>
+        //         <Toolbar>
+        //             <IconButton
+        //                 color="inherit"
+        //                 aria-label="open drawer"
+        //                 onClick={handleDrawer}
+        //                 edge="start"
+        //             >
+        //                 <MenuIcon />
+        //             </IconButton>
+        //             <Typography variant="h6" noWrap component="div">
+        //                 Employee Management System
+        //             </Typography>
+        //         </Toolbar>
+        //     </AppBar>
+        //     <Sidebar open={open} onToggle={handleDrawer} menus={[
+        //         {
+        //             icon: (<AcUnit/>),
+        //             route: "/dashboard/user",
+        //             text: "User"
+        //         }
+        //     ]}/>
+        //     {children}
+        // </Box>
     )
 }
