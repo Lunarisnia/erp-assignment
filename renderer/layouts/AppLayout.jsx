@@ -1,5 +1,5 @@
 import Sidebar from "../components/Sidebar";
-import {Person} from "@mui/icons-material";
+import {CalendarMonthOutlined, Person} from "@mui/icons-material";
 import React, {useState} from "react";
 import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -35,7 +35,12 @@ export default function AppLayout({children}) {
                 {
                     icon: (<Person/>),
                     route: "/dashboard/user",
-                    text: "User"
+                    text: "Karyawan"
+                },
+                {
+                    icon: (<CalendarMonthOutlined/>),
+                    route: "/dashboard/attendance",
+                    text: "Absensi"
                 }
             ]}/>
             <div style={{marginTop: 80, marginLeft: 120}}>
